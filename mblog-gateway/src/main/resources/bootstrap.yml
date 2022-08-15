@@ -9,7 +9,17 @@ spring:
     nacos:
       discovery:
         server-addr: localhost:8848
+        group: mblog
       config:
         server-addr: localhost:8848
         file-extension: yml
+        group: mblog
+    gateway:
+      routes:
+        - id: mblog-web
+          uri: lb://mblog-web
+          predicates:
+            - Path=/mblog/**,/static/**
+          filters:
+            - StripPrefix=1
 

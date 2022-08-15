@@ -13,7 +13,7 @@ html,body { height: 100%;margin: 0; padding: 0;}
     align-items: center;
     height: 100%;
     width: 100%;
-    background-image: url(../../images/login-background.webp);
+    background-image: url(../../static/images/login-background.webp);
     background-size: cover
 }
 

@@ -1,0 +1,16 @@
+server:
+  port: 12000
+spring:
+  application:
+    name: mblog-web
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+        group: mblog
+      config:
+        server-addr: localhost:8848
+        file-extension: yml
+        group: mblog
