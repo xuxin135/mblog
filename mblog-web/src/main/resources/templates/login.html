@@ -13,23 +13,19 @@
         <el-form class="login-form">
             <h3 class="login-title">M-Blog后台管理系统</h3>
             <el-form-item>
-                <el-input prefix-icon="el-icon-user-solid"></el-input>
+                <el-input v-model="username" prefix-icon="el-icon-user-solid"></el-input>
             </el-form-item>
             <el-form-item style="margin-bottom: 0px;">
-                <el-input prefix-icon="el-icon-lock"></el-input>
+                <el-input v-model="password" prefix-icon="el-icon-lock" show-password></el-input>
             </el-form-item>
             <el-form-item style="margin-bottom: 0px;">
-                <el-checkbox>记住我</el-checkbox>
+                <el-checkbox v-model="rememberMe">记住我</el-checkbox>
             </el-form-item>
             <el-form-item>
-                <el-button type="primary" style="width: 100%">登录</el-button>
+                <el-button type="primary" style="width: 100%" v-on:click="login">登录</el-button>
             </el-form-item>
         </el-form>
     </div>
 </body>
-<script>
-    new Vue({
-        el: '#login-form'
-    })
-</script>
+<script src="/static/js/login.js"></script>
 </html>
