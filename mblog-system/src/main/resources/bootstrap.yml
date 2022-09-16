@@ -1,7 +1,6 @@
-
 spring:
   application:
-    name: mblog-auth
+    name: mblog-system
   profiles:
     active: dev
   cloud:

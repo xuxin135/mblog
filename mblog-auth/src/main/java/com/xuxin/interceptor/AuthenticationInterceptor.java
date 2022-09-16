@@ -5,7 +5,6 @@ import com.xuxin.util.TokenUtil;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.lang.reflect.Method;
@@ -36,7 +35,7 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
             throw new RuntimeException("无token，请重新登录");
         }
 
-
+        //验证token是否有效
        try {
             TokenUtil.verify(token);
         } catch (Exception e) {

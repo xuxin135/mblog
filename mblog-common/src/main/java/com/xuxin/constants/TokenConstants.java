@@ -27,5 +27,10 @@ public class TokenConstants {
      */
     public static final int TOKEN_EXPIRE_TIME = 10;
 
+    /**
+     * 保存在redis中的token头
+     */
+    public static final String TOKEN_HEAD = "token:";
+
 
 }

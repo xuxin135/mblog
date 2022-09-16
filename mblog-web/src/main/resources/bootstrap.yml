@@ -1,5 +1,4 @@
-server:
-  port: 12001
+
 spring:
   application:
     name: mblog-web

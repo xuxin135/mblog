@@ -1,4 +1,4 @@
-package com.xuxin.Model;
+package com.xuxin.model;
 
 import java.io.Serializable;
 

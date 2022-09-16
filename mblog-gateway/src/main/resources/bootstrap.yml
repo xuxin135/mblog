@@ -1,5 +1,3 @@
-server:
-  port: 12000
 spring:
   application:
     name: mblog-gateway
@@ -14,19 +12,3 @@ spring:
         server-addr: localhost:8848
         file-extension: yml
         group: mblog
-    gateway:
-      routes:
-        #前端服务
-        - id: mblog-web
-          uri: lb://mblog-web
-          predicates:
-            - Path=/mblog/**,/static/**
-          filters:
-            - StripPrefix=1
-        #认证服务
-        - id: mblog-auth
-          uri: lb://mblog-auth
-          predicates:
-            - Path=/auth/**
-          filters:
-            - StripPrefix=1

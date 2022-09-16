@@ -21,6 +21,7 @@
         <module>mblog-common</module>
         <module>mblog-system</module>
         <module>mblog-gateway</module>
+        <module>mblog-api</module>
     </modules>
 
     <properties>

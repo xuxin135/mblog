@@ -1,8 +1,9 @@
 package com.xuxin.service.impl;
 
-import com.xuxin.Model.LoginForm;
-import com.xuxin.model.Result;
+import com.alibaba.fastjson.JSONObject;
 import com.xuxin.constants.TokenConstants;
+import com.xuxin.model.LoginForm;
+import com.xuxin.model.Result;
 import com.xuxin.dto.User;
 import com.xuxin.service.ILoginService;
 import com.xuxin.util.RedisUtil;
@@ -33,10 +34,15 @@ public class LoginServiceImpl implements ILoginService {
         //验证用户成功后，创建token
         String token = TokenUtil.createToken(user.getId());
 
-        //将token保存到redis里面，key为token字符串，value为user对象
+        //将token保存到redis里面，key为token:userId，value为token字符串
         //过期时间为10分钟
-        redisUtil.setExpireByMin(token,user, TokenConstants.TOKEN_EXPIRE_TIME);
 
-        return Result.success(token);
+        String key = TokenConstants.TOKEN_HEAD + user.getId();
+        redisUtil.setExpireByMin(key, token, TokenConstants.TOKEN_EXPIRE_TIME);
+
+        JSONObject object = new JSONObject();
+        object.put("userId",user.getId());
+        object.put("token",token);
+        return Result.success(object);
     }
 }
